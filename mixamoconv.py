@@ -460,11 +460,11 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
             file_loader[file_ext](file.path)
 
             # namespace removal
-            if b_remove_namespace:
-                for obj in bpy.context.selected_objects:
-                    remove_namespace(obj)
+            #if b_remove_namespace:
+                #for obj in bpy.context.selected_objects:
+                    #remove_namespace(obj)
             # rename to unreal boness
-            elif b_unreal_bones:
+            if b_unreal_bones:
                 for obj in bpy.context.selected_objects:
                     rename_bones(obj, 'unreal')
 
