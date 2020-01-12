@@ -5,17 +5,14 @@
     Copyright (C) 2017-2018  Enzio Probst
   
     Created by Enzio Probst
-
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
-
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU General Public License for more details.
-
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 '''
@@ -53,60 +50,60 @@ def remove_namespace(s=''):
 def rename_bones(s='', t='unreal'):
     """function for renaming the armature bones to a target skeleton"""
     unreal = {
-        'root': 'Root',
-        'Hips': 'Pelvis',
-        'Spine': 'spine_01',
-        'Spine1': 'spine_02',
-        'Spine2': 'spine_03',
-        'LeftShoulder': 'clavicle_l',
-        'LeftArm': 'upperarm_l',
-        'LeftForeArm': 'lowerarm_l',
-        'LeftHand': 'hand_l',
-        'RightShoulder': 'clavicle_r',
-        'RightArm': 'upperarm_r',
-        'RightForeArm': 'lowerarm_r',
-        'RightHand': 'hand_r',
-        'Neck1': 'neck_01',
-        'Neck': 'neck_01',
-        'Head': 'head',
-        'LeftUpLeg': 'thigh_l',
-        'LeftLeg': 'calf_l',
-        'LeftFoot': 'foot_l',
-        'RightUpLeg': 'thigh_r',
-        'RightLeg': 'calf_r',
-        'RightFoot': 'foot_r',
-        'LeftHandIndex1': 'index_01_l',
-        'LeftHandIndex2': 'index_02_l',
-        'LeftHandIndex3': 'index_03_l',
-        'LeftHandMiddle1': 'middle_01_l',
-        'LeftHandMiddle2': 'middle_02_l',
-        'LeftHandMiddle3': 'middle_03_l',
-        'LeftHandPinky1': 'pinky_01_l',
-        'LeftHandPinky2': 'pinky_02_l',
-        'LeftHandPinky3': 'pinky_03_l',
-        'LeftHandRing1': 'ring_01_l',
-        'LeftHandRing2': 'ring_02_l',
-        'LeftHandRing3': 'ring_03_l',
-        'LeftHandThumb1': 'thumb_01_l',
-        'LeftHandThumb2': 'thumb_02_l',
-        'LeftHandThumb3': 'thumb_03_l',
-        'RightHandIndex1': 'index_01_r',
-        'RightHandIndex2': 'index_02_r',
-        'RightHandIndex3': 'index_03_r',
-        'RightHandMiddle1': 'middle_01_r',
-        'RightHandMiddle2': 'middle_02_r',
-        'RightHandMiddle3': 'middle_03_r',
-        'RightHandPinky1': 'pinky_01_r',
-        'RightHandPinky2': 'pinky_02_r',
-        'RightHandPinky3': 'pinky_03_r',
-        'RightHandRing1': 'ring_01_r',
-        'RightHandRing2': 'ring_02_r',
-        'RightHandRing3': 'ring_03_r',
-        'RightHandThumb1': 'thumb_01_r',
-        'RightHandThumb2': 'thumb_02_r',
-        'RightHandThumb3': 'thumb_03_r',
-        'LeftToeBase': 'ball_l',
-        'RightToeBase': 'ball_r'
+        'mixamorig:root': 'Root',
+        'mixamorig:Hips': 'Pelvis',
+        'mixamorig:Spine': 'spine_01',
+        'mixamorig:Spine1': 'spine_02',
+        'mixamorig:Spine2': 'spine_03',
+        'mixamorig:LeftShoulder': 'clavicle_l',
+        'mixamorig:LeftArm': 'upperarm_l',
+        'mixamorig:LeftForeArm': 'lowerarm_l',
+        'mixamorig:LeftHand': 'hand_l',
+        'mixamorig:RightShoulder': 'clavicle_r',
+        'mixamorig:RightArm': 'upperarm_r',
+        'mixamorig:RightForeArm': 'lowerarm_r',
+        'mixamorig:RightHand': 'hand_r',
+        'mixamorig:Neck1': 'neck_01',
+        'mixamorig:Neck': 'neck_01',
+        'mixamorig:Head': 'head',
+        'mixamorig:LeftUpLeg': 'thigh_l',
+        'mixamorig:LeftLeg': 'calf_l',
+        'mixamorig:LeftFoot': 'foot_l',
+        'mixamorig:RightUpLeg': 'thigh_r',
+        'mixamorig:RightLeg': 'calf_r',
+        'mixamorig:RightFoot': 'foot_r',
+        'mixamorig:LeftHandIndex1': 'index_01_l',
+        'mixamorig:LeftHandIndex2': 'index_02_l',
+        'mixamorig:LeftHandIndex3': 'index_03_l',
+        'mixamorig:LeftHandMiddle1': 'middle_01_l',
+        'mixamorig:LeftHandMiddle2': 'middle_02_l',
+        'mixamorig:LeftHandMiddle3': 'middle_03_l',
+        'mixamorig:LeftHandPinky1': 'pinky_01_l',
+        'mixamorig:LeftHandPinky2': 'pinky_02_l',
+        'mixamorig:LeftHandPinky3': 'pinky_03_l',
+        'mixamorig:LeftHandRing1': 'ring_01_l',
+        'mixamorig:LeftHandRing2': 'ring_02_l',
+        'mixamorig:LeftHandRing3': 'ring_03_l',
+        'mixamorig:LeftHandThumb1': 'thumb_01_l',
+        'mixamorig:LeftHandThumb2': 'thumb_02_l',
+        'mixamorig:LeftHandThumb3': 'thumb_03_l',
+        'mixamorig:RightHandIndex1': 'index_01_r',
+        'mixamorig:RightHandIndex2': 'index_02_r',
+        'mixamorig:RightHandIndex3': 'index_03_r',
+        'mixamorig:RightHandMiddle1': 'middle_01_r',
+        'mixamorig:RightHandMiddle2': 'middle_02_r',
+        'mixamorig:RightHandMiddle3': 'middle_03_r',
+        'mixamorig:RightHandPinky1': 'pinky_01_r',
+        'mixamorig:RightHandPinky2': 'pinky_02_r',
+        'mixamorig:RightHandPinky3': 'pinky_03_r',
+        'mixamorig:RightHandRing1': 'ring_01_r',
+        'mixamorig:RightHandRing2': 'ring_02_r',
+        'mixamorig:RightHandRing3': 'ring_03_r',
+        'mixamorig:RightHandThumb1': 'thumb_01_r',
+        'mixamorig:RightHandThumb2': 'thumb_02_r',
+        'mixamorig:RightHandThumb3': 'thumb_03_r',
+        'mixamorig:LeftToeBase': 'ball_l',
+        'mixamorig:RightToeBase': 'ball_r'
     }
     schema = {'unreal': unreal }
     if type(s) == str:
@@ -126,7 +123,7 @@ def rename_bones(s='', t='unreal'):
 
 def key_all_bones(armature, frame_range = (1, 2)):
     """Sets keys for all Bones in frame_range"""
-    bpy.context.scene.objects.active = armature
+    bpy.context.view_layer.objects.active = armature
     bpy.ops.object.mode_set(mode='POSE')
     bpy.ops.pose.select_all(action='SELECT')
     for i in range(*frame_range):
@@ -137,34 +134,34 @@ def key_all_bones(armature, frame_range = (1, 2)):
 def apply_restoffset(armature, hipbone, restoffset):
     """function to apply restoffset to rig, should be used if rest-/bindpose does not stand on ground with feet"""
     # apply rest offset to restpose
-    bpy.context.scene.objects.active = armature
+    bpy.context.view_layer.objects.active = armature
     bpy.ops.object.mode_set(mode='EDIT')
     bpy.ops.armature.select_all(action='SELECT')
     bpy.ops.transform.translate(value=restoffset, constraint_axis=(False, False, False),
-                                constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED',
-                                proportional_edit_falloff='SMOOTH', proportional_size=1)
+                                orient_type='GLOBAL', mirror=False, use_proportional_edit=False,
+                                )
     bpy.ops.object.mode_set(mode='OBJECT')
 
     # apply restoffset to animation of hip
     restoffset_local = (restoffset[0], restoffset[2], -restoffset[1])
     for axis in range(3):
-        fcurve = armature.animation_data.action.fcurves.find("pose.bones[\"" + hipbone.name + "\"].location", axis)
+        fcurve = armature.animation_data.action.fcurves.find("pose.bones[\"" + hipbone.name + "\"].location", index=axis)
         for pi in range(len(fcurve.keyframe_points)):
             fcurve.keyframe_points[pi].co.y -= restoffset_local[axis] / armature.scale.x
     return 1
 
 
-def apply_kneefix(armature, offset, bonenames=['RightUpLeg', 'LeftUpLeg']):
+def apply_kneefix(armature, offset, bonenames=['mixamorig:RightUpLeg', 'mixamorig:LeftUpLeg']):
     """workaround for flickering knees after export (moves joints in restpose by offset, can break animation)"""
     if bpy.context.scene.mixamo.b_unreal_bones:
         bonenames = ["calf_r", "calf_l"]
 
-    bpy.context.scene.objects.active = armature
+    bpy.context.view_layer.objects.active = armature
     bpy.ops.object.mode_set(mode='EDIT')
     bpy.ops.armature.select_all(action='DESELECT')
     for name in bonenames:
         armature.data.edit_bones[name].select_tail = True
-    bpy.ops.transform.translate(value=offset, proportional='DISABLED', release_confirm=True)
+    bpy.ops.transform.translate(value=offset, use_proportional_edit=False, release_confirm=True)
     bpy.ops.object.mode_set(mode='OBJECT')
     return 1
 
@@ -172,12 +169,12 @@ def get_all_quaternion_curves(object):
     """returns all quaternion fcurves of object/bones packed together in a touple per object/bone"""
     fcurves = object.animation_data.action.fcurves
     if fcurves.find('rotation_quaternion'):
-        yield (fcurves.find('rotation_quaternion', 0), fcurves.find('rotation_quaternion', 1), fcurves.find('rotation_quaternion', 2), fcurves.find('rotation_quaternion', 3))
+        yield (fcurves.find('rotation_quaternion', index=0), fcurves.find('rotation_quaternion', index=1), fcurves.find('rotation_quaternion', index=2), fcurves.find('rotation_quaternion', index=3))
     if object.type == 'ARMATURE':
         for bone in object.pose.bones:
             data_path = 'pose.bones["' + bone.name + '"].rotation_quaternion'
             if fcurves.find(data_path):
-                yield (fcurves.find(data_path, 0), fcurves.find(data_path, 1),fcurves.find(data_path, 2),fcurves.find(data_path, 3))
+                yield (fcurves.find(data_path, index=0), fcurves.find(data_path, index=1),fcurves.find(data_path, index=2),fcurves.find(data_path, index=3))
 
 def quaternion_cleanup(object, prevent_flips=True, prevent_inverts=True):
     """fixes signs in quaternion fcurves swapping from one frame to another"""
@@ -243,7 +240,7 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     # Scale by ScaleFactor
     if scale != 1.0:
         for i in range(3):
-            fcurve = root.animation_data.action.fcurves.find('scale', i)
+            fcurve = root.animation_data.action.fcurves.find('scale', index=i)
             if fcurve != None:
                 root.animation_data.action.fcurves.remove(fcurve)
         root.scale *= scale
@@ -258,13 +255,11 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     apply_restoffset(root, hips, restoffset)
     yield Status("restoffset")
 
-    hiplocation_world = root.matrix_local * hips.bone.head
+    hiplocation_world = root.matrix_local @ hips.bone.head
     z_offset = hiplocation_world[2]
 
     # Create helper to bake the root motion
-    bpy.ops.object.empty_add(type='ARROWS', radius=1, view_align=False, location=(0, 0, 0), layers=(
-    True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-    False, False, False, False))
+    bpy.ops.object.empty_add(type='ARROWS', radius=1, align='WORLD', location=(0, 0, 0))
     rootBaker = bpy.context.object
     rootBaker.name = "rootBaker"
     rootBaker.rotation_mode = 'QUATERNION'
@@ -307,9 +302,7 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     yield Status("rootBaker quatCleanup")
 
     # Create helper to bake hipmotion in Worldspace
-    bpy.ops.object.empty_add(type='ARROWS', radius=1, view_align=False, location=(0, 0, 0), layers=(
-    True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False,
-    False, False, False, False))
+    bpy.ops.object.empty_add(type='ARROWS', radius=1, align='WORLD', location=(0, 0, 0))
     hipsBaker = bpy.context.object
     hipsBaker.name = "hipsBaker"
     hipsBaker.rotation_mode = 'QUATERNION'
@@ -330,8 +323,8 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     yield Status("hipsBaker quatClenaup")
 
     # select armature
-    root.select = True
-    bpy.context.scene.objects.active = root
+    root.select_set(True)
+    bpy.context.view_layer.objects.active = root
 
     if apply_rotation or apply_scale:
         bpy.ops.object.transform_apply(location=False, rotation=apply_rotation, scale=apply_scale)
@@ -352,7 +345,7 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     yield Status("rootBaker baked back")
     quaternion_cleanup(root)
     yield Status("root quaternion cleanup")
-    hipsBaker.select = False
+    hipsBaker.select_set(False)
 
     bpy.ops.object.mode_set(mode='POSE')
     hips.bone.select = True
@@ -376,8 +369,8 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
     bpy.ops.object.mode_set(mode='OBJECT')
     bpy.ops.object.select_all(action='DESELECT')
 
-    hipsBaker.select = True
-    rootBaker.select = True
+    hipsBaker.select_set(True)
+    rootBaker.select_set(True)
 
     bpy.ops.object.delete(use_global=False)
     yield Status("bakers deleted")
@@ -393,19 +386,16 @@ def hip_to_root(armature, use_x=True, use_y=True, use_z=True, on_ground=True, us
                         break
         if bindmesh is None:
             bpy.ops.object.select_all(action='DESELECT')
-            bpy.ops.mesh.primitive_plane_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0),
-                                             layers=(
-                                             True, False, False, False, False, False, False, False, False, False, False,
-                                             False, False, False, False, False, False, False, False, False))
+            bpy.ops.mesh.primitive_plane_add(size=1, align='WORLD', enter_editmode=False, location=(0, 0, 0))
             binddummy = bpy.context.object
             binddummy.name = 'binddummy'
-            root.select = True
-            bpy.context.scene.objects.active = root
+            root.select_set(True)
+            bpy.context.view_layer.objects.active = root
             bpy.ops.object.parent_set(type='ARMATURE')
             yield Status("binddummy created")
         elif apply_rotation or apply_scale:
-            bindmesh.select = True
-            bpy.context.scene.objects.active = bindmesh
+            bindmesh.select_set(True)
+            bpy.context.view_layer.objects.active = bindmesh
             bpy.ops.object.transform_apply(location=False, rotation=apply_rotation, scale=apply_scale)
             yield Status("apply transform to bindmesh")
     return 1
@@ -482,7 +472,8 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
                 for a in objects:
                     if a.type == 'ARMATURE':
                         return a
-                raise TypeError("No Armature found")
+                    else:
+                        raise TypeError("No Armature found")
 
             armature = getArmature(bpy.context.selected_objects)
 
@@ -500,7 +491,7 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
 
             if (knee_offset != (0.0, 0.0, 0.0)):
                 apply_kneefix(armature, knee_offset,
-                              bonenames=bpy.context.scene.mixamo.knee_bones.decode('utf-8').split(','))
+                              bonenames=['mixamorig:' + s for s in bpy.context.scene.mixamo.knee_bones.decode('utf-8').split(',')])
 
             # remove newly created orphan actions
             for action in bpy.data.actions:
@@ -510,7 +501,6 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
             # store file to disk
             output_file = dest_dir + file.name[:-4] + ".fbx"
             bpy.ops.export_scene.fbx(filepath=output_file,
-                                     version='BIN7400',
                                      use_selection=False,
                                      apply_unit_scale=False,
                                      add_leaf_bones=add_leaf_bones,

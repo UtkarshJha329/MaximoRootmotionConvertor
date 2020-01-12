@@ -3,9 +3,7 @@
 
  Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
  Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.                      <== I'm the person who ported this thing, so I don't know what
-											the original Author thinks of this, but his github page
-											tells something about editing. So I might be fine?
+ of this license document, but changing it is not allowed.
 
                             Preamble
 
