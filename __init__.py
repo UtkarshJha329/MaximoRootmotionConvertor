@@ -72,16 +72,16 @@ class MixamoPropertyGroup(bpy.types.PropertyGroup):
     use_z : bpy.props.BoolProperty(
         name="Use Z",
         description="If enabled, vertical motion is transfered to RootBone",
-        default=True)
+        default=False)
     on_ground : bpy.props.BoolProperty(
         name="On Ground",
         description="If enabled, root bone is on ground and only moves up at jumps",
-        default=True)
+        default=False)
 
     use_rotation : bpy.props.BoolProperty(
         name="Transfer Rotation",
         description="Whether to transfer roation to root motion. Should be enabled for curve walking animations. Can be disabled for straight animations with strong hip Motion like Rolling",
-        default=True)
+        default=False)
 
     scale : bpy.props.FloatProperty(
         name="Scale",
@@ -137,10 +137,6 @@ class MixamoPropertyGroup(bpy.types.PropertyGroup):
         maxlen = 256,
         default = "",
         subtype='BYTE_STRING')
-    b_remove_namespace : bpy.props.BoolProperty(
-        name="Remove Namespace",
-        description="Removes Naespaces from objects and bones",
-        default=True)
     b_unreal_bones : bpy.props.BoolProperty(
         name="Use Unreal Engine bone schema",
         description="Renames bones to match unreal engine schema",
@@ -166,24 +162,6 @@ class MixamoPropertyGroup(bpy.types.PropertyGroup):
         description="Performs quaternion cleanup after conversion",
         default=True)
 
-
-class OBJECT_OT_RemoveNamespace(bpy.types.Operator):
-    '''Button/Operator for removing namespaces from selection'''
-    bl_idname = "mixamo.remove_namespace"
-    bl_label = ""
-    #description = "Removes all namespaces of selection (for single Convert)"
-
-    def execute(self, context):
-        mixamo = context.scene.mixamo
-        if not bpy.context.object:
-            self.report({'ERROR_INVALID_INPUT'}, "Error: no object selected.")
-            return{'CANCELLED'}
-        for obj in bpy.context.selected_objects:
-            status = mixamoconv.remove_namespace(obj)
-            if status == -1:
-                self.report({'ERROR_INVALID_INPUT'}, 'Invalid Object in selection')
-                return{'CANCELLED' }
-        return{'FINISHED'}
 
 class OBJECT_OT_UseBlenderBoneNames(bpy.types.Operator):
     '''Button/Operator for renaming bones to match unreal skeleton'''
@@ -357,7 +335,6 @@ class OBJECT_OT_ConvertBatch(bpy.types.Operator):
             fixbind = mixamo.fixbind,
             apply_rotation = mixamo.apply_rotation,
             apply_scale = mixamo.apply_scale,
-            b_remove_namespace = mixamo.b_remove_namespace,
             b_unreal_bones = mixamo.b_unreal_bones,
             add_leaf_bones = mixamo.add_leaf_bones,
             knee_offset = mixamo.knee_offset,
@@ -388,11 +365,11 @@ class OBJECT_PT_MixamoconvPanel(bpy.types.Panel):
         box = layout.box()
         # Options for how to do the conversion
         row = box.row()
-        row.prop(scn.mixamo, "use_z", toggle =True)
+        row.prop(scn.mixamo, "use_z", toggle =False)
         if scn.mixamo.use_z:
-            row.prop(scn.mixamo, "on_ground", toggle =True)
+            row.prop(scn.mixamo, "on_ground", toggle =False)
         row = box.row()
-        row.prop(scn.mixamo, "use_rotation", toggle = True)
+        row.prop(scn.mixamo, "use_rotation", toggle = False)
         # Button for conversion of single Selected rig
         row = box.row()
         row.scale_y = 2.0
@@ -408,20 +385,16 @@ class OBJECT_PT_MixamoconvPanel(bpy.types.Panel):
             col = split.column(align =True)
             col.prop(scn.mixamo, "use_x", toggle =True)
             col.prop(scn.mixamo, "use_y", toggle =True)
-            col.prop(scn.mixamo, "use_z", toggle =True)
+            col.prop(scn.mixamo, "use_z", toggle =False)
 
             box.label(text="Bone names:")
             box.prop(scn.mixamo, "hipname")
 
-            row = box.row()
-            row.prop(scn.mixamo, 'b_remove_namespace', text="Remove Namespaces")
-            row.operator("mixamo.remove_namespace", icon='PLAY')
-            row.enabled = not scn.mixamo.b_unreal_bones
 
             row = box.row()
             row.prop(scn.mixamo, 'b_unreal_bones', text="Use Unreal Engine bone names")
             row.operator("mixamo.unreal_bones", icon='PLAY')
-            row.enabled = not scn.mixamo.b_remove_namespace
+            row.enabled = True
 
             box.label(text="Fixes:")
             row = box.row()
@@ -452,7 +425,7 @@ class OBJECT_PT_MixamoconvPanel(bpy.types.Panel):
 
                 row = col.row()
                 row.prop(scn.mixamo, "knee_bones")
-                row.enabled = not scn.mixamo.b_remove_namespace and not scn.mixamo.b_unreal_bones
+                row.enabled = not scn.mixamo.b_unreal_bones
 
         # input and output paths for batch conversion
         box = layout.box()

@@ -28,24 +28,6 @@ from mathutils import Quaternion
 log = logging.getLogger(__name__)
 #log.setLevel('DEBUG')
 
-def remove_namespace(s=''):
-    """function for removing all namespaces from strings, objects or even armatrure bones"""
-
-    if type(s) == str:
-        i = re.search(r"[:_]", s[::-1])
-        if i:
-            return s[-(i.start())::]
-        else:
-            return s
-
-    elif type(s) == Object:
-        if s.type == 'ARMATURE':
-            for bone in s.data.bones:
-                bone.name = remove_namespace(bone.name)
-        s.name = remove_namespace(s.name)
-        return 1
-    return -1
-
 
 def rename_bones(s='', t='unreal'):
     """function for renaming the armature bones to a target skeleton"""
@@ -459,11 +441,6 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
             # import FBX
             file_loader[file_ext](file.path)
 
-            # namespace removal
-            #if b_remove_namespace:
-                #for obj in bpy.context.selected_objects:
-                    #remove_namespace(obj)
-            # rename to unreal boness
             if b_unreal_bones:
                 for obj in bpy.context.selected_objects:
                     rename_bones(obj, 'unreal')
