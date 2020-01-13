@@ -28,6 +28,24 @@ from mathutils import Quaternion
 log = logging.getLogger(__name__)
 #log.setLevel('DEBUG')
 
+def remove_namespace(s=''):
+    """function for removing all namespaces from strings, objects or even armatrure bones"""
+
+    if type(s) == str:
+        i = re.search(r"[:_]", s[::-1])
+        if i:
+            return s[-(i.start())::]
+        else:
+            return s
+
+    elif type(s) == Object:
+        if s.type == 'ARMATURE':
+            for bone in s.data.bones:
+                bone.name = remove_namespace(bone.name)
+        s.name = remove_namespace(s.name)
+        return 1
+    return -1
+
 
 def rename_bones(s='', t='unreal'):
     """function for renaming the armature bones to a target skeleton"""

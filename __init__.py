@@ -139,7 +139,7 @@ class MixamoPropertyGroup(bpy.types.PropertyGroup):
         subtype='BYTE_STRING')
     b_unreal_bones : bpy.props.BoolProperty(
         name="Use Unreal Engine bone schema",
-        description="Renames bones to match unreal engine schema",
+        description="Result File has unreal bone names",
         default=False)
     fixbind : bpy.props.BoolProperty(
         name="Fix Bind",
@@ -392,7 +392,7 @@ class OBJECT_PT_MixamoconvPanel(bpy.types.Panel):
 
 
             row = box.row()
-            row.prop(scn.mixamo, 'b_unreal_bones', text="Use Unreal Engine bone names")
+            row.prop(scn.mixamo, 'b_unreal_bones', text="Result in Unreal Bone Names")
             row.operator("mixamo.unreal_bones", icon='PLAY')
             row.enabled = True
 
