@@ -490,8 +490,10 @@ def batch_hip_to_root(source_dir, dest_dir, use_x=True, use_y=True, use_z=True, 
                                      mesh_smooth_type='FACE')
             bpy.ops.object.select_all(action='SELECT')
             bpy.ops.object.delete(use_global=False)
-    return numfiles
 
+    bpy.ops.wm.read_homefile()
+    return numfiles
 
 if __name__ == "__main__":
     print("mixamoconv Hello.")
+
