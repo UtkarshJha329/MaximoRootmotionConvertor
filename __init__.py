@@ -5,7 +5,7 @@
     Copyright (C) 2017-2018  Enzio Probst
 
     Created by Enzio Probst
-    Updated to Blender 2.8 by Bouncy Knight
+    Updated to Blender 2.8 by Utkarsh Jha
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
